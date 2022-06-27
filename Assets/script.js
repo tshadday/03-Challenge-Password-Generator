@@ -4,7 +4,6 @@ var randomLetterLower = "abcdefghijklmnopqrstuvwxyz";
 var randomLetterUpper = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
 var randomNumber = "0123456789";
 var randomSpecial = "!@#$%^&*-_=+?/:;<,>.";
-var characterSet = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -24,47 +23,55 @@ function generatePassword() {
     alert("Please insert a number between 8 and 128");
   }
 
+  var characterSet = "";
+  
   var lowerCase = confirm("Would you like lowercase letters?");
   if (lowerCase === true){
-    alert("thank you")
-    var characterSet = randomLetterLower;
+    alert("thank you");
+    var characterSet = characterSet + randomLetterLower;
   }
   else if (lowerCase === false){
-    alert("thank you")
+    alert("thank you");
   }
 
   var upperCase = confirm("Would you like uppercase letters?");
   if (upperCase === true){
-    alert("thank you")
+    alert("thank you");
     var characterSet = characterSet + randomLetterUpper;
   }
   else if (upperCase === false){
-    alert("thank you")
+    alert("thank you");
   }
  
   var number = confirm("Would you like to include numbers?");
   if (number === true){
-    alert("thank you")
+    alert("thank you");
     var characterSet = characterSet + randomNumber;
   }
   else if (number === false){
-    alert("thank you")
+    alert("thank you");
   }
 
   var specialChar = confirm("Would you like to include special characters?");
   if (specialChar === true){
-    alert("thank you")
+    alert("thank you");
     var characterSet = characterSet + randomSpecial;
   }
   else if (specialChar === false){
-    alert("thank you")
+    alert("thank you");
   }
+
+console.log(characterSet)
+
+  var passwordRandom = "";
 
   for (i = 0; i < passLength; i++ ) {
     var randomizer = Math.floor(Math.random() * characterSet.length);
-    var randomPassword = characterSet.substring(randomizer, randomizer +1);
-    console.log(randomPassword);
+    passwordRandom += characterSet.substring(randomizer, randomizer +1);
+    console.log(passwordRandom);
    }
+
+   alert("Your password is: " + passwordRandom)
 }
 
 // Add event listener to generate button
