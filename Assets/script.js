@@ -24,58 +24,48 @@ function generatePassword() {
     alert("Please insert a number between 8 and 128");
   }
 
-  var lowerCase = prompt("Would you like lowercase letters? Yes or No?", "Yes");
-  if (lowerCase === "Yes"){
+  var lowerCase = confirm("Would you like lowercase letters?");
+  if (lowerCase === true){
     alert("thank you")
     var characterSet = randomLetterLower;
   }
-  else if (lowerCase === "No"){
+  else if (lowerCase === false){
     alert("thank you")
   }
-  else{
-    alert("Please answer either Yes or No");
-  }
 
-  var upperCase = prompt("Would you like uppercase letters? Yes or No?", "Yes");
-  if (upperCase === "Yes"){
+  var upperCase = confirm("Would you like uppercase letters?");
+  if (upperCase === true){
     alert("thank you")
     var characterSet = characterSet + randomLetterUpper;
   }
-  else if (upperCase === "No"){
+  else if (upperCase === false){
     alert("thank you")
   }
-  else{
-    alert("Please answer either Yes or No");
-  }
-
-  var number = prompt("Would you like to include numbers? Yes or No?", "Yes");
-  if (number === "Yes"){
+ 
+  var number = confirm("Would you like to include numbers?");
+  if (number === true){
     alert("thank you")
     var characterSet = characterSet + randomNumber;
   }
-  else if (number === "No"){
+  else if (number === false){
     alert("thank you")
   }
-  else{
-    alert("Please answer either Yes or No");
-  }
 
-  var specialChar = prompt("Would you like to include special characters? Yes or No?", "Yes");
-  if (specialChar === "Yes"){
+  var specialChar = confirm("Would you like to include special characters?");
+  if (specialChar === true){
     alert("thank you")
     var characterSet = characterSet + randomSpecial;
   }
-  else if (specialChar === "No"){
+  else if (specialChar === false){
     alert("thank you")
   }
-  else{
-    alert("Please answer either Yes or No");
-  }
 
-  
+  for (i = 0; i < passLength; i++ ) {
+    var randomizer = Math.floor(Math.random() * characterSet.length);
+    var randomPassword = characterSet.substring(randomizer, randomizer +1);
+    console.log(randomPassword);
+   }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-generatePassword()
