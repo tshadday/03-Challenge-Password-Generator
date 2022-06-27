@@ -1,8 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var randomLetter = "abcdefghijklmnopqrstuvwxyz"
-var randomNumer = "0123456789"
-var randomSpecial = "!@#$%^&*-_=+?/:;<,>."
+var randomLetterLower = "abcdefghijklmnopqrstuvwxyz";
+var randomLetterUpper = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+var randomNumber = "0123456789";
+var randomSpecial = "!@#$%^&*-_=+?/:;<,>.";
+var characterSet = "";
 
 // Write password to the #password input
 function writePassword() {
@@ -25,6 +27,7 @@ function generatePassword() {
   var lowerCase = prompt("Would you like lowercase letters? Yes or No?", "Yes");
   if (lowerCase === "Yes"){
     alert("thank you")
+    var characterSet = randomLetterLower;
   }
   else if (lowerCase === "No"){
     alert("thank you")
@@ -36,6 +39,7 @@ function generatePassword() {
   var upperCase = prompt("Would you like uppercase letters? Yes or No?", "Yes");
   if (upperCase === "Yes"){
     alert("thank you")
+    var characterSet = characterSet + randomLetterUpper;
   }
   else if (upperCase === "No"){
     alert("thank you")
@@ -47,6 +51,7 @@ function generatePassword() {
   var number = prompt("Would you like to include numbers? Yes or No?", "Yes");
   if (number === "Yes"){
     alert("thank you")
+    var characterSet = characterSet + randomNumber;
   }
   else if (number === "No"){
     alert("thank you")
@@ -58,6 +63,7 @@ function generatePassword() {
   var specialChar = prompt("Would you like to include special characters? Yes or No?", "Yes");
   if (specialChar === "Yes"){
     alert("thank you")
+    var characterSet = characterSet + randomSpecial;
   }
   else if (specialChar === "No"){
     alert("thank you")
@@ -65,7 +71,11 @@ function generatePassword() {
   else{
     alert("Please answer either Yes or No");
   }
+
+  
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+generatePassword()
